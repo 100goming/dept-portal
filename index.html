@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Center · 리서치 보고서 안내 &amp; 투자 지표 학습 포털</title>
+<script>(function(){var t='night';try{if(localStorage.getItem('rc-theme')==='day')t='day';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<style>
+:root,[data-theme="night"]{
+  color-scheme:dark;
+  /* 우리 부서 포털 design system tokens — Night */
+  --bg-page:#0f0b1d;
+  --bg-section:#120d24;
+  --bg-deep:#0b0816;
+  --bg-hero:#151028;
+  --surface:#181330;
+  --surface-sunken:#140f27;
+  --surface-open:#1d1639;
+  --surface-hover:#211a40;
+  --line:#2b2347;
+  --line-inverse:rgba(255,255,255,0.14);
+  --line-nav:rgba(255,255,255,0.08);
+  --ink:#ece8f7;
+  --ink-soft:#cfc7e6;
+  --muted:#a49cbd;
+  --ink-inverse-soft:#b8afd6;
+  --ink-inverse-muted:#a89fc8;
+  --ink-inverse-faint:#8e84b3;
+  --accent:#b69cff;
+  --accent-text:#a98bff;
+  --accent-link:#cfc2ff;
+  --accent-tint:#2a1f4d;
+  --accent-tint-text:#d9ccff;
+  --on-accent:#0b0816;
+  --primary:#6d4de0;
+  --primary-hover:#8061f0;
+  --on-primary:#ffffff;
+  --code-text:#d8c8ff;
+  --notice-text:#d4c9f5;
+  --tag-macro-bg:#1e2a55;
+  --tag-macro-text:#a9c0ff;
+  --tag-company-bg:#2d1f55;
+  --tag-company-text:#cdb8ff;
+  --tag-outlook-bg:#123a2c;
+  --tag-outlook-text:#8fe0b6;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:10px;
+  --space-4:12px;
+  --space-5:16px;
+  --space-6:20px;
+  --space-7:36px;
+  --space-8:48px;
+  --space-9:64px;
+  --space-10:72px;
+  --radius-xs:4px;
+  --radius-sm:6px;
+  --radius-md:8px;
+  --radius-lg:10px;
+  --radius-xl:12px;
+  --radius-pill:999px;
+  --shadow-nav:0 2px 14px rgba(0,0,0,.45);
+  --shadow-card-hover:0 10px 26px rgba(0,0,0,.4);
+  --shadow-link-hover:0 6px 18px rgba(0,0,0,.35);
+  --shadow-menu:0 14px 24px rgba(0,0,0,.55);
+  --container-max:1120px;
+  --nav-height:60px;
+  --font-sans:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:ui-monospace,Menlo,Consolas,monospace;
+  --focus-ring:var(--accent);
+  --card-accent:var(--accent);
+  /* legacy names used by this page's rules */
+  --navy-900:var(--bg-deep);
+  --navy-800:var(--bg-hero);
+  --navy-700:var(--primary);
+  --navy-600:var(--primary-hover);
+  --cyan:var(--accent);
+  --cyan-600:var(--accent-text);
+  --cyan-100:var(--accent-tint);
+  --bg:var(--bg-page);
+  --card:var(--surface);
+  --nav-h:var(--nav-height);
+  --radius:var(--radius-xl);
+  --font:var(--font-sans);
+}
+[data-theme="day"]{
+  color-scheme:light;
+  /* 우리 부서 포털 design system tokens — Day (바뀌는 값만) */
+  --bg-page:#f5f3fa;--bg-section:#ffffff;--surface:#ffffff;--surface-sunken:#f7f5fc;--surface-open:#efe9fc;--surface-hover:#e9e2f9;
+  --line:#ddd6ee;--ink:#1c1530;--ink-soft:#3d3558;--muted:#5b5275;
+  --accent-text:#5b3fd0;--accent-link:#4a2fb8;--accent-tint:#ece6ff;--accent-tint-text:#4a2fb8;
+  --primary-hover:#5b3fd0;--notice-text:#3d2f7a;
+  --tag-macro-bg:#e1e8ff;--tag-macro-text:#1f3a8a;--tag-company-bg:#efe5ff;--tag-company-text:#5a2fa8;--tag-outlook-bg:#dcf5e7;--tag-outlook-text:#13663a;
+  --shadow-card-hover:0 10px 26px rgba(28,21,48,.14);--shadow-link-hover:0 6px 18px rgba(28,21,48,.12);
+  --focus-ring:var(--primary-hover);--card-accent:var(--primary);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-text-size-adjust:100%}
+a{color:inherit}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px;border-radius:4px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+/* ---------- 상단 고정 메뉴 ---------- */
+.topbar{position:sticky;top:0;z-index:50;height:var(--nav-h);background:var(--navy-900);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 14px rgba(0,0,0,.45)}
+.topbar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+.brand-mark{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--cyan),var(--cyan-600));display:grid;place-items:center}
+.brand-mark svg{width:16px;height:16px}
+.menu{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 12px;border-radius:8px;color:#b8afd6;text-decoration:none;font-size:.92rem;font-weight:500;white-space:nowrap;transition:background .2s,color .2s}
+.menu a:hover{background:rgba(255,255,255,.08);color:#fff}
+.menu a[aria-current="true"]{color:var(--navy-900);background:var(--cyan);font-weight:700}
+.nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+
+/* ---------- 히어로 ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(1200px 500px at 85% -10%,rgba(182,156,255,.24),transparent 60%),linear-gradient(160deg,var(--navy-800),var(--navy-900) 70%);padding:72px 0 64px}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(182,156,255,.4);padding:4px 10px;border-radius:999px;margin-bottom:16px}
+.hero h1{margin:0 0 14px;font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.15;letter-spacing:-.01em}
+.hero h1 span{color:var(--cyan)}
+.hero p.lead{margin:0 0 26px;color:#cfc7e6;font-size:1.05rem;max-width:34em}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 16px;min-width:104px}
+.chip b{display:block;font-size:1.4rem;color:var(--cyan);line-height:1.2}
+.chip small{color:#a89fc8;font-size:.8rem}
+.hero-art{width:100%;height:auto}
+
+/* ---------- 공통 섹션 ---------- */
+section.block{padding:64px 0}
+section.block.alt{background:#fff;border-block:1px solid var(--line)}
+.sec-head{margin-bottom:28px}
+.sec-head .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-600);font-weight:700}
+.sec-head h2{margin:4px 0 6px;font-size:clamp(1.5rem,3vw,2rem);color:var(--navy-800);letter-spacing:-.01em}
+.sec-head p{margin:0;color:var(--muted);max-width:44em}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--navy-700);background:var(--navy-700);color:#fff;border-radius:8px;padding:9px 16px;font:inherit;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;transition:background .2s,transform .1s}
+.btn:hover{background:var(--navy-600)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:#fff;color:var(--navy-700)}
+.btn.ghost:hover{background:var(--cyan-100)}
+.note{font-size:.85rem;color:var(--muted)}
+
+/* ---------- 분야 카드 ---------- */
+.field-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.field{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--cyan);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,transform .2s}
+.field:hover{box-shadow:0 10px 26px rgba(0,0,0,.4);transform:translateY(-2px)}
+.field .no{font-size:.8rem;font-weight:700;color:var(--cyan-600);letter-spacing:.08em}
+.field h3{margin:0;font-size:1.2rem;color:var(--navy-800)}
+.field p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.field .count{font-size:.85rem;color:var(--navy-700);font-weight:600}
+.field button{margin-top:6px;justify-content:center}
+
+/* ---------- 보고서 목록 ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:18px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line);background:#fff;color:var(--navy-700);border-radius:999px;padding:7px 15px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .15s}
+.pill:hover{border-color:var(--cyan-600)}
+.pill[aria-pressed="true"]{background:var(--navy-700);border-color:var(--navy-700);color:#fff}
+.controls{display:flex;flex-wrap:wrap;gap:10px}
+.field-input,select.field-input{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font:inherit;font-size:.92rem;background:#fff;color:var(--ink);min-width:0}
+.field-input:focus{border-color:var(--cyan-600)}
+.result-meta{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.report{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px}
+.report header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tag{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--accent-tint);color:var(--accent-tint-text)}
+.tag.macro{background:var(--tag-macro-bg);color:var(--tag-macro-text)}
+.tag.industry{background:var(--accent-tint);color:var(--accent-tint-text)}
+.tag.company{background:var(--tag-company-bg);color:var(--tag-company-text)}
+.tag.outlook{background:var(--tag-outlook-bg);color:var(--tag-outlook-text)}
+.report time{font-size:.85rem;color:var(--muted)}
+.report h3{margin:0;font-size:1.08rem;color:var(--navy-800);line-height:1.4}
+.report ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.92rem}
+.report li{margin:2px 0}
+.report .btn{align-self:flex-start;margin-top:auto}
+.empty{text-align:center;padding:36px 16px;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted);background:#fff}
+
+/* ---------- 펼침형(아코디언) ---------- */
+.acc{counter-reset:n;display:grid;gap:10px}
+.acc details{counter-increment:n;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;align-items:center;gap:12px;font-weight:700;color:var(--navy-800)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::before{content:counter(n,decimal-leading-zero);font-size:.8rem;color:var(--cyan-600);font-variant-numeric:tabular-nums}
+.acc summary::after{content:"+";margin-left:auto;font-size:1.3rem;line-height:1;color:var(--navy-600);transition:transform .2s}
+.acc details[open] summary::after{content:"−"}
+.acc details[open] summary{background:var(--surface-open);border-bottom:1px solid var(--line)}
+.acc .body{padding:14px 18px 18px;color:var(--ink-soft);font-size:.95rem}
+.acc .body p{margin:0 0 8px}
+.acc .body .eq{display:inline-block;background:var(--navy-900);color:#d8c8ff;border-radius:6px;padding:3px 10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem}
+.acc .hint{color:var(--muted);font-size:.86rem}
+.acc details[hidden]{display:none}
+
+/* ---------- 지표 일정 표 ---------- */
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.93rem}
+caption{text-align:left;padding:14px 16px;font-weight:700;color:var(--navy-800)}
+th,td{padding:11px 16px;text-align:left;border-top:1px solid var(--line)}
+thead th{background:var(--navy-800);color:#fff;font-size:.85rem;font-weight:600;border-top:0;white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-sunken)}
+tbody tr:hover{background:var(--surface-hover)}
+td.date{white-space:nowrap;font-weight:700;color:var(--navy-700)}
+td.date small{color:var(--muted);font-weight:500}
+.stars{color:var(--cyan-600);letter-spacing:1px;white-space:nowrap}
+
+/* ---------- 계산기 ---------- */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.panel h3{margin:0 0 14px;font-size:1.05rem;color:var(--navy-800)}
+.form-row{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.form-row label{font-size:.88rem;font-weight:600;color:var(--navy-700)}
+.form-row input{width:100%}
+.form-row small{color:var(--muted);font-size:.8rem}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.metric{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;border-radius:10px;padding:16px}
+.metric span{display:block;font-size:.82rem;color:#a89fc8}
+.metric strong{display:block;font-size:1.55rem;color:var(--cyan);margin-top:2px;font-variant-numeric:tabular-nums;word-break:keep-all}
+.metric strong.small{font-size:1rem;line-height:1.5}
+.metric em{display:block;font-style:normal;font-size:.76rem;color:#8e84b3;margin-top:4px}
+.privacy{margin-top:14px;padding:10px 12px;background:var(--surface-open);border-left:3px solid var(--cyan);border-radius:4px;font-size:.84rem;color:#d4c9f5}
+
+/* ---------- FAQ 검색 ---------- */
+.faq-cat{flex:none;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--accent-tint);color:var(--accent-tint-text);white-space:nowrap}
+.faq-q{flex:1;min-width:0}
+
+.faq-search{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.faq-search .field-input{flex:1;min-width:200px}
+
+/* ---------- 자료실 ---------- */
+.lib{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lib a{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.lib a:hover{border-color:var(--cyan-600);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.lib b{color:var(--navy-800)}
+.lib span{font-size:.84rem;color:var(--muted)}
+.lib i{font-style:normal;font-size:.75rem;font-weight:700;color:var(--cyan-600);letter-spacing:.08em}
+
+/* ---------- 하단 ---------- */
+footer{background:var(--navy-900);color:#b8afd6;padding:34px 0 40px;font-size:.88rem}
+footer .notice{border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:16px 18px;color:#e4def5;line-height:1.7;margin:0 0 14px}
+footer .copy{margin:0;color:#8e84b3;font-size:.82rem}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:1080px){
+  .menu a{padding:8px 9px;font-size:.86rem}
+}
+@media (max-width:980px){
+  .nav-toggle{display:inline-block}
+  .menu{position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;background:var(--navy-900);padding:8px 16px 14px;border-bottom:1px solid rgba(255,255,255,.1);display:none;box-shadow:0 14px 24px rgba(0,0,0,.55)}
+  .menu.open{display:flex}
+  .menu a{padding:12px 10px;font-size:1rem}
+  .hero .grid{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .field-grid{grid-template-columns:repeat(2,1fr)}
+  .calc{grid-template-columns:1fr}
+  .lib{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  :root{--nav-h:56px}
+  .wrap{width:min(1120px,100% - 28px)}
+  .hero{padding:48px 0 44px}
+  section.block{padding:48px 0}
+  .field-grid,.report-grid,.lib{grid-template-columns:1fr}
+  .results{grid-template-columns:1fr 1fr}
+  .toolbar{flex-direction:column;align-items:stretch}
+  .controls{flex-direction:column}
+  .metric strong{font-size:1.3rem}
+}
+/* ===== theme B : Violet Night ===== */
+.field,.report,.panel,.toolbar,.acc details,.lib a,.table-wrap,.empty,.field-input,select.field-input,.pill,.btn.ghost{background:var(--surface)}
+section.block.alt{background:var(--bg-section)}
+.sec-head h2,.field h3,.report h3,.acc summary,.panel h3,.lib b,caption,.form-row label{color:var(--ink)}
+.field .count,.pill,.btn.ghost,td.date{color:var(--accent-link)}
+.pill[aria-pressed="true"]{color:var(--on-primary)}
+.hero{background:radial-gradient(1200px 520px at 85% -10%,rgba(182,156,255,.26),transparent 60%),radial-gradient(700px 400px at 0% 110%,rgba(236,112,190,.14),transparent 60%),linear-gradient(160deg,#151028,#0b0816 70%)}
+.field{border-top-color:var(--card-accent)}
+.privacy{color:var(--notice-text);border-left-color:var(--card-accent)}
+/* ===== 우리 부서 포털 design system ===== */
+.brand-mark{background:var(--accent)}
+.btn:hover{font-weight:700}
+.btn.ghost:hover{font-weight:600}
+.btn{border-radius:var(--radius-md)}
+.field:hover{box-shadow:var(--shadow-card-hover)}
+.lib a:hover{box-shadow:var(--shadow-link-hover)}
+.menu{--_s:var(--shadow-menu)}
+/* ===== 자료실 파일 목록 ===== */
+.filelist{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-3)}
+.filelist li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.5fr) auto auto;gap:var(--space-5);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-5) 18px}
+.filelist .fname{display:flex;flex-direction:column;gap:2px;min-width:0}
+.filelist .fname i{font-style:normal;font-size:.75rem;font-weight:700;color:var(--accent-text);letter-spacing:.08em}
+.filelist .fname b{color:var(--ink);word-break:break-all}
+.filelist .fname small{color:var(--muted);font-size:.8rem;word-break:break-all}
+.filelist .fdesc{margin:0;color:var(--ink-soft);font-size:.93rem}
+.filelist .fsize{color:var(--muted);font-size:.85rem;white-space:nowrap}
+@media (max-width:980px){.filelist li{grid-template-columns:minmax(0,1fr) auto auto}.filelist .fdesc{grid-column:1/-1;order:3}}
+@media (max-width:640px){.filelist li{grid-template-columns:1fr auto}.filelist .fname{grid-column:1/-1}.filelist .fdesc{order:0}}
+.faq-filters{margin-bottom:14px}
+/* ===== 메뉴 버튼·테마 전환·맨 위로 ===== */
+:focus-visible{outline-color:var(--focus-ring)}
+.topbar :focus-visible,.hero :focus-visible,footer :focus-visible{outline-color:var(--accent)}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.nav-actions{display:flex;align-items:center;gap:var(--space-2)}
+.icon-btn,.nav-toggle{width:40px;height:40px;padding:0;place-items:center;border:1px solid rgba(255,255,255,.25);background:none;color:var(--on-primary);border-radius:var(--radius-md);cursor:pointer;transition:background .2s}
+.icon-btn{display:inline-grid}
+.nav-toggle{display:none}
+.icon-btn:hover,.nav-toggle:hover{background:var(--line-nav)}
+.icon-btn svg,.to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn .i-moon{display:none}
+[data-theme="day"] .icon-btn .i-sun{display:none}
+[data-theme="day"] .icon-btn .i-moon{display:block}
+.burger{display:block;position:relative;width:18px;height:14px}
+.burger i{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+.burger i:nth-child(1){top:0}
+.burger i:nth-child(2){top:6px}
+.burger i:nth-child(3){top:12px}
+.nav-toggle[aria-expanded="true"] .burger i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .burger i:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] .burger i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:980px){.nav-toggle{display:inline-grid}}
+.to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;border-radius:var(--radius-pill);background:var(--primary);color:var(--on-primary);box-shadow:var(--shadow-link-hover);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,background .2s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--primary-hover)}
+@media (max-width:640px){.to-top{right:14px;bottom:14px}}
+/* ===== 최신 이슈 ===== */
+.news-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
+.news{--na:var(--accent);position:relative;display:flex;flex-direction:column;gap:var(--space-4);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--na);border-radius:var(--radius-xl);padding:var(--space-6);transition:transform .15s,box-shadow .15s,border-color .15s}
+.news:hover{transform:translateY(-3px);box-shadow:var(--shadow-card-hover);border-color:var(--na)}
+.news.macro{--na:var(--tag-macro-text)}
+.news.company{--na:var(--tag-company-text)}
+.news.outlook{--na:var(--tag-outlook-text)}
+.news-main{display:flex;flex-direction:column;gap:var(--space-3)}
+.news header{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}
+.news .rank{font-size:1.5rem;font-weight:800;line-height:1;color:var(--na);letter-spacing:-.02em}
+.news time{margin-left:auto;font-size:.82rem;color:var(--muted)}
+.news h3{margin:0;font-size:1.02rem;line-height:1.45;color:var(--ink);letter-spacing:-.01em}
+.news p{margin:0;color:var(--ink-soft);font-size:.88rem;line-height:1.65}
+.news-stat{display:flex;flex-direction:column;gap:2px;padding:var(--space-4) var(--space-5);background:var(--surface-sunken);border-radius:var(--radius-lg);border-left:3px solid var(--na)}
+.news-stat b{font-size:1.7rem;line-height:1.15;font-weight:800;color:var(--na);letter-spacing:-.02em}
+.news-stat span{font-size:.82rem;color:var(--ink);font-weight:600}
+.news-stat small{font-size:.78rem;color:var(--muted)}
+.news-foot{margin-top:auto;padding-top:var(--space-3);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-1) var(--space-4);font-size:.82rem}
+.news-foot span{color:var(--muted)}
+.news-foot a{color:var(--accent-link);font-weight:600;text-decoration:none}
+.news-foot a:hover{text-decoration:underline}
+.news-foot a::after{content:" \2197"}
+.news.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) 300px;grid-template-areas:"main stat" "foot stat";column-gap:var(--space-7);row-gap:var(--space-4);padding:var(--space-7);background:linear-gradient(135deg,var(--surface-open),var(--surface))}
+.news.featured .news-main{grid-area:main;gap:var(--space-4)}
+.news.featured .news-stat{grid-area:stat;align-self:center;justify-content:center;padding:var(--space-6) var(--space-7);gap:var(--space-2)}
+.news.featured .news-foot{grid-area:foot}
+.news.featured .rank{font-size:2.4rem}
+.news.featured h3{font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.35}
+.news.featured p{font-size:.98rem}
+.news.featured .news-stat b{font-size:3rem}
+.news.featured .news-stat span{font-size:.92rem}
+.news-chart{margin:var(--space-3) 0 0;padding:var(--space-4) var(--space-5) var(--space-3);background:var(--surface-sunken);border:1px solid var(--line);border-radius:var(--radius-lg)}
+.news-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.news-chart .c-area{fill:var(--na);opacity:.14}
+.news-chart .c-line{fill:none;stroke:var(--na);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.news-chart .c-ah{stroke:var(--na);stroke-width:2.4;stroke-dasharray:4 4}
+.news-chart .c-dots circle{fill:var(--surface-sunken);stroke:var(--na);stroke-width:2}
+.news-chart .c-ah-dot{fill:var(--na)}
+.news-chart .c-mark{stroke:var(--muted);stroke-width:1;stroke-dasharray:2 4}
+.news-chart text{font-size:12px;fill:var(--muted);font-family:var(--font-sans)}
+.news-chart .c-t{fill:var(--ink);font-weight:700}
+.news-chart .c-note{fill:var(--muted);font-weight:600}
+.news-chart figcaption{margin-top:var(--space-2);font-size:.76rem;line-height:1.5;color:var(--muted)}
+@media (max-width:640px){.news-chart{padding:var(--space-3)}.news-chart text{font-size:16px}}
+@media (max-width:980px){.news-grid{grid-template-columns:1fr 1fr}.news.featured{grid-template-columns:1fr;grid-template-areas:"main" "stat" "foot";padding:var(--space-6)}.news.featured .news-stat{padding:var(--space-4) var(--space-5)}.news.featured .news-stat b{font-size:2.2rem}}
+@media (max-width:640px){.news-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.news{transition:none}.news:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== 상단 고정 메뉴 ===== -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Research Center 홈">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#0b0816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l4-4 3 3 5-6"/></svg>
+      </span>
+      Research Center
+    </a>
+    <nav aria-label="주 메뉴">
+      <ul class="menu" id="menu">
+        <li><a href="#home">홈</a></li>
+        <li><a href="#issues">최신 이슈</a></li>
+        <li><a href="#fields">리서치 분야</a></li>
+        <li><a href="#reports">보고서</a></li>
+        <li><a href="#guide">읽는 법</a></li>
+        <li><a href="#calendar">지표 일정</a></li>
+        <li><a href="#calculator">지표 계산기</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#library">자료실</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="라이트 모드로 전환" title="라이트 모드로 전환">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기">
+        <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===== 홈 ===== -->
+<section class="hero" id="home" aria-labelledby="homeTitle">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Investment Research Guide</span>
+      <h1 id="homeTitle"><span>Research</span> Center</h1>
+      <p class="lead">리서치 보고서를 찾고, 읽고, 투자 지표를 직접 계산해 보는 학습 포털입니다.</p>
+      <div class="chips" aria-label="포털 현황(예시)">
+        <div class="chip"><b class="num" id="statReports">8</b><small>예시 보고서</small></div>
+        <div class="chip"><b class="num">4</b><small>리서치 분야</small></div>
+        <div class="chip"><b class="num" id="statTerms">10</b><small>핵심 용어</small></div>
+      </div>
+    </div>
+    <svg class="hero-art" viewBox="0 0 520 300" role="img" aria-label="우상향 추세선이 그려진 장식용 차트">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b69cff" stop-opacity=".35"/><stop offset="1" stop-color="#b69cff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <g stroke="rgba(255,255,255,.1)" stroke-width="1">
+        <path d="M20 50H500M20 110H500M20 170H500M20 230H500"/>
+        <path d="M80 30V260M200 30V260M320 30V260M440 30V260"/>
+      </g>
+      <g fill="rgba(255,255,255,.14)">
+        <rect x="64" y="190" width="22" height="50" rx="3"/><rect x="124" y="170" width="22" height="70" rx="3"/>
+        <rect x="184" y="180" width="22" height="60" rx="3"/><rect x="244" y="150" width="22" height="90" rx="3"/>
+        <rect x="304" y="130" width="22" height="110" rx="3"/><rect x="364" y="140" width="22" height="100" rx="3"/>
+        <rect x="424" y="100" width="22" height="140" rx="3"/>
+      </g>
+      <path d="M40 200L100 170L160 185L220 140L280 120L340 90L400 105L470 50L470 250L40 250Z" fill="url(#g1)"/>
+      <polyline points="40,200 100,170 160,185 220,140 280,120 340,90 400,105 470,50" fill="none" stroke="#b69cff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="470" cy="50" r="6" fill="#b69cff"/><circle cx="470" cy="50" r="12" fill="none" stroke="#b69cff" stroke-opacity=".4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== 최신 이슈 ===== -->
+<section class="block alt" id="issues" aria-labelledby="issuesTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Latest</div>
+      <h2 id="issuesTitle">최신 이슈</h2>
+      <p>글로벌 증시 주요 뉴스 5건입니다. 2026.11.18 기준이며, 요약은 직접 정리했습니다. 이 카드는 자동으로 갱신되지 않으니 자세한 내용은 출처 원문을 확인하세요.</p>
+    </div>
+    <div class="news-grid">
+      <article class="news company featured">
+        <div class="news-main">
+          <header><span class="rank num" aria-hidden="true">01</span><span class="tag company">엔비디아</span><time class="num" datetime="2026-11-17">2026.11.17</time></header>
+          <h3>엔비디아, 황 CEO 사임 후 첫 실적… 4분기 매출 1,300억 달러 전망</h3>
+          <p>3분기(10월 25일 종료) 매출은 약 1,158억 달러로 전년보다 103% 늘었습니다. 4분기 매출은 약 1,300억 달러(±3%)로 제시했고, 장 마감 뒤 시간외 거래에서 주가는 4~5%대 올랐습니다.</p>
+        <figure class="news-chart">
+          <svg viewBox="0 0 560 176" role="img" aria-labelledby="nvTitle nvDesc" focusable="false">
+            <title id="nvTitle">엔비디아 종가 추이(11/9~11/17)</title>
+            <desc id="nvDesc">11월 9일 178.67달러에서 11월 12일 황 CEO 사임 발표로 166.19달러, 11월 17일 155.46달러로 마감했고, 실적 발표 뒤 시간외에서는 162.94달러까지 올랐습니다.</desc>
+            <polygon class="c-area" points="14.0,146 14.0,45.7 90.0,79.9 166.0,62.9 242.0,89.3 318.0,101.0 394.0,124.5 470.0,126.9 470.0,146"/>
+            <line class="c-mark" x1="242.0" y1="24" x2="242.0" y2="146"/>
+            <polyline class="c-line" points="14.0,45.7 90.0,79.9 166.0,62.9 242.0,89.3 318.0,101.0 394.0,124.5 470.0,126.9"/>
+            <line class="c-ah" x1="470.0" y1="126.9" x2="546.0" y2="100.7"/>
+            <g class="c-dots"><circle cx="14.0" cy="45.7" r="3.4"/><circle cx="90.0" cy="79.9" r="3.4"/><circle cx="166.0" cy="62.9" r="3.4"/><circle cx="242.0" cy="89.3" r="3.4"/><circle cx="318.0" cy="101.0" r="3.4"/><circle cx="394.0" cy="124.5" r="3.4"/><circle cx="470.0" cy="126.9" r="3.4"/></g>
+            <circle class="c-ah-dot" cx="546.0" cy="100.7" r="4.2"/>
+            <text class="c-t" x="14.0" y="36.7">178.67</text>
+            <text class="c-t" x="470.0" y="145.9" text-anchor="middle">155.46</text>
+            <text class="c-t" x="546.0" y="89.7" text-anchor="end">162.94 (시간외)</text>
+            <text class="c-note" x="248.0" y="20">황 CEO 사임 발표</text>
+            <text class="c-x" x="14.0" y="167" text-anchor="middle">11/9</text><text class="c-x" x="90.0" y="167" text-anchor="middle">11/10</text><text class="c-x" x="166.0" y="167" text-anchor="middle">11/11</text><text class="c-x" x="242.0" y="167" text-anchor="middle">11/12</text><text class="c-x" x="318.0" y="167" text-anchor="middle">11/13</text><text class="c-x" x="394.0" y="167" text-anchor="middle">11/16</text><text class="c-x" x="470.0" y="167" text-anchor="middle">11/17</text>
+          </svg>
+          <figcaption>NVDA 종가(달러), 11/9~11/17. 점선은 11/17 실적 발표 직후 시간외 거래(약 +4.8%)</figcaption>
+        </figure>
+        </div>
+        <div class="news-stat"><b class="num">+103%</b><span>3분기 매출, 전년 대비</span><small>4분기 전망 약 1,300억 달러</small></div>
+        <div class="news-foot"><span>출처</span>
+        <a href="https://www.stocktitan.net/articles/stock-market-today-live-november-17-2026" target="_blank" rel="noopener noreferrer" aria-label="엔비디아, 황 CEO 사임 후 첫 실적… 4분기 매출 1,300억 달러 전망 — StockTitan 원문 보기(새 탭)">StockTitan</a>
+        <a href="https://investinglive.com/news/investinglive-asia-pacific-market-news-gold-breaks-below-3-800/" target="_blank" rel="noopener noreferrer" aria-label="엔비디아, 황 CEO 사임 후 첫 실적… 4분기 매출 1,300억 달러 전망 — investingLive 원문 보기(새 탭)">investingLive</a>
+        </div>
+      </article>
+      <article class="news outlook">
+        <div class="news-main">
+          <header><span class="rank num" aria-hidden="true">02</span><span class="tag outlook">미국 증시</span><time class="num" datetime="2026-11-17">2026.11.17</time></header>
+          <h3>미 증시 사흘째 하락… S&amp;P500, 7월 말 이후 최저 마감</h3>
+          <p>17일 다우지수는 1.64%, S&amp;P500은 1.03%, 나스닥은 0.74% 내렸습니다. 전날에는 반도체주 급락으로 S&amp;P500이 1.9%, 나스닥이 2.5% 떨어졌습니다. 물가·금리 부담과 AI 투자 불확실성이 이어졌습니다.</p>
+        </div>
+        <div class="news-stat"><b class="num">−1.03%</b><span>S&amp;P500, 11/17 마감</span><small>7월 말 이후 최저 마감</small></div>
+        <div class="news-foot"><span>출처</span>
+        <a href="https://www.stocktitan.net/articles/stock-market-today-live-november-17-2026" target="_blank" rel="noopener noreferrer" aria-label="미 증시 사흘째 하락… S&amp;P500, 7월 말 이후 최저 마감 — StockTitan 원문 보기(새 탭)">StockTitan</a>
+        <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-news-nov-17-134200250.html" target="_blank" rel="noopener noreferrer" aria-label="미 증시 사흘째 하락… S&amp;P500, 7월 말 이후 최저 마감 — Yahoo Finance 원문 보기(새 탭)">Yahoo Finance</a>
+        </div>
+      </article>
+      <article class="news macro">
+        <div class="news-main">
+          <header><span class="rank num" aria-hidden="true">03</span><span class="tag macro">금리·달러</span><time class="num" datetime="2026-11-16">2026.11.16</time></header>
+          <h3>미 10년물 금리 5%대… 12월 금리 인상 기대 커져</h3>
+          <p>근원물가가 높게 나오고 연준 인사들의 매파적 발언이 이어지면서 10년물 금리가 5%를 넘어섰습니다(16일 종가 5.13%). 달러는 2025년 4월 이후 가장 높은 수준이고, 12월 인상은 사실상 가격에 반영됐다는 평가입니다.</p>
+        </div>
+        <div class="news-stat"><b class="num">5.13%</b><span>미 10년물 금리, 11/16 종가</span><small>12월 인상 기대 확대</small></div>
+        <div class="news-foot"><span>출처</span>
+        <a href="https://pro.thestreet.com/stock-market-today/ai-stocks-drag-the-sp-500-back-toward-the-november-5th-lows" target="_blank" rel="noopener noreferrer" aria-label="미 10년물 금리 5%대… 12월 금리 인상 기대 커져 — TheStreet Pro 원문 보기(새 탭)">TheStreet Pro</a>
+        <a href="https://www.babypips.com/analysis/fundies-cheat-sheet-2026-11-16-fed-minutes-nvidia-bitcoin" target="_blank" rel="noopener noreferrer" aria-label="미 10년물 금리 5%대… 12월 금리 인상 기대 커져 — BabyPips 원문 보기(새 탭)">BabyPips</a>
+        </div>
+      </article>
+      <article class="news company">
+        <div class="news-main">
+          <header><span class="rank num" aria-hidden="true">04</span><span class="tag company">IPO</span><time class="num" datetime="2026-11-18">2026.11.18</time></header>
+          <h3>앤트로픽, 18일 공모가 확정·19일 나스닥 상장 예정(ANT)</h3>
+          <p>공모 희망 가격은 주당 70~78달러, 물량은 8억 2,500만 주입니다(11월 10일 정정 신고서 기준). 일정은 규제 당국 승인과 시장 상황에 따라 바뀔 수 있습니다. 상장을 앞두고 자금 확보를 위한 기술주 매도가 있었다는 분석도 나왔습니다.</p>
+        </div>
+        <div class="news-stat"><b class="num">$70~78</b><span>앤트로픽 공모 희망가(주당)</span><small>8억 2,500만 주 · 나스닥 ANT</small></div>
+        <div class="news-foot"><span>출처</span>
+        <a href="https://decodethefuture.org/en/anthropic-ipo-valuation-date/?amp=1" target="_blank" rel="noopener noreferrer" aria-label="앤트로픽, 18일 공모가 확정·19일 나스닥 상장 예정(ANT) — Decode the Future 원문 보기(새 탭)">Decode the Future</a>
+        <a href="https://pro.thestreet.com/stock-market-today/ai-stocks-drag-the-sp-500-back-toward-the-november-5th-lows" target="_blank" rel="noopener noreferrer" aria-label="앤트로픽, 18일 공모가 확정·19일 나스닥 상장 예정(ANT) — TheStreet Pro 원문 보기(새 탭)">TheStreet Pro</a>
+        </div>
+      </article>
+      <article class="news outlook">
+        <div class="news-main">
+          <header><span class="rank num" aria-hidden="true">05</span><span class="tag outlook">아시아 증시</span><time class="num" datetime="2026-11-18">2026.11.18</time></header>
+          <h3>아시아 증시, 엔비디아 호실적에 반도체 반등 출발 후 혼조</h3>
+          <p>코스피는 개장 직후 3% 넘게 올랐다가 상승폭을 줄였습니다. 한국시간 낮 12시께 AP 기준 코스피 +0.2%, 닛케이 -0.6%, 항셍 -0.4%였습니다. 하루 앞선 17일에는 닛케이 -1.18%, 코스피 -1.79%로 반도체주가 약했습니다.</p>
+        </div>
+        <div class="news-stat"><b class="num">+0.2%</b><span>코스피, 한국시간 낮 12시경</span><small>개장 직후 +3%대에서 상승폭 축소</small></div>
+        <div class="news-foot"><span>출처</span>
+        <a href="https://www.tradingview.com/news/cnbctv:352a14e2e094b:0/" target="_blank" rel="noopener noreferrer" aria-label="아시아 증시, 엔비디아 호실적에 반도체 반등 출발 후 혼조 — CNBC-TV18 원문 보기(새 탭)">CNBC-TV18</a>
+        <a href="https://www.aol.com/articles/asian-markets-mostly-decline-wall-034546000.html" target="_blank" rel="noopener noreferrer" aria-label="아시아 증시, 엔비디아 호실적에 반도체 반등 출발 후 혼조 — AP 원문 보기(새 탭)">AP</a>
+        <a href="https://fxstreet.com/news/asian-stocks-slide-as-us-tech-curbs-weigh-on-sentiment-nvidia-earnings-awaited-202611170501" target="_blank" rel="noopener noreferrer" aria-label="아시아 증시, 엔비디아 호실적에 반도체 반등 출발 후 혼조 — FXStreet 원문 보기(새 탭)">FXStreet</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 리서치 분야 ===== -->
+<section class="block" id="fields" aria-labelledby="fieldsTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Coverage</div>
+      <h2 id="fieldsTitle">리서치 분야</h2>
+      <p>분야를 선택하면 해당 분야의 보고서만 모아서 볼 수 있습니다.</p>
+    </div>
+    <div class="field-grid" id="fieldGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 보고서 ===== -->
+<section class="block alt" id="reports" aria-labelledby="reportsTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Reports</div>
+      <h2 id="reportsTitle">보고서</h2>
+      <p>분야 필터, 날짜 정렬, 제목 검색으로 원하는 보고서를 찾아보세요. (아래 보고서는 모두 예시입니다.)</p>
+    </div>
+    <div class="toolbar">
+      <div class="filters" id="filters" role="group" aria-label="분야 필터"></div>
+      <div class="controls">
+        <select class="field-input" id="sortSel" aria-label="날짜 정렬">
+          <option value="new">발간일 최신순</option>
+          <option value="old">발간일 오래된순</option>
+        </select>
+        <input class="field-input" id="titleSearch" type="search" placeholder="제목 검색" aria-label="보고서 제목 검색" autocomplete="off">
+      </div>
+    </div>
+    <p class="result-meta" id="resultMeta" aria-live="polite"></p>
+    <div class="report-grid" id="reportGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 보고서 읽는 법 ===== -->
+<section class="block" id="guide" aria-labelledby="guideTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How to read</div>
+      <h2 id="guideTitle">보고서 읽는 법</h2>
+      <p>보고서 첫 장에 자주 나오는 용어 10가지를 정리했습니다. 항목을 눌러 펼쳐 보세요.</p>
+    </div>
+    <div class="acc" id="glossary">
+      <details>
+        <summary>투자의견</summary>
+        <div class="body">
+          <p>분석가가 보고서 작성 시점에 해당 대상의 향후 성과를 어떻게 판단하는지를 등급으로 나타낸 것입니다. 보통 3~5단계 등급 체계를 쓰며, 등급의 정의와 기준 기간은 발간 기관마다 다릅니다.</p>
+          <p class="hint">투자의견은 작성 시점의 분석가 판단일 뿐 개별 투자자의 상황을 고려한 권유가 아닙니다. 보고서 말미의 등급 정의와 이전 의견 이력을 함께 확인하세요.</p>
+        </div>
+      </details>
+      <details>
+        <summary>목표주가</summary>
+        <div class="body">
+          <p>실적 추정과 밸류에이션 가정(예: 적정 PER·PBR)을 바탕으로 제시하는 향후 일정 기간(보통 6~12개월) 뒤의 추정 가격입니다.</p>
+          <p class="hint">가정이 바뀌면 값도 바뀌며, 도달을 보장하는 수치가 아닙니다. 어떤 가정으로 산출했는지가 숫자 자체보다 중요합니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary>컨센서스</summary>
+        <div class="body">
+          <p>여러 기관이 낸 실적·주가 추정치를 모아 평균이나 중앙값으로 나타낸 시장 기대치입니다. 실적 발표 때 '컨센서스 대비 상회/하회'를 따질 때 기준이 됩니다.</p>
+          <p class="hint">집계처와 집계 시점, 포함 기관 수에 따라 값이 다를 수 있으니 출처를 확인하세요.</p>
+        </div>
+      </details>
+      <details>
+        <summary>EPS (주당순이익)</summary>
+        <div class="body">
+          <p>당기순이익을 발행주식수로 나눈 값으로, 주식 1주가 벌어들인 이익을 뜻합니다.</p>
+          <p><span class="eq">EPS = 당기순이익 ÷ 발행주식수</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>BPS (주당순자산)</summary>
+        <div class="body">
+          <p>순자산(자본총계)을 발행주식수로 나눈 값으로, 회사를 청산한다고 가정할 때 1주가 갖는 장부상 가치입니다.</p>
+          <p><span class="eq">BPS = 순자산 ÷ 발행주식수</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>PER (주가수익비율)</summary>
+        <div class="body">
+          <p>주가가 주당순이익의 몇 배인지를 보여 주는 지표입니다. 같은 업종 내 비교나 과거 평균과의 비교에 주로 쓰입니다.</p>
+          <p><span class="eq">PER = 주가 ÷ EPS</span></p>
+          <p class="hint">적자(EPS가 0 이하)인 경우에는 의미 있는 값이 나오지 않습니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary>PBR (주가순자산비율)</summary>
+        <div class="body">
+          <p>주가가 주당순자산의 몇 배인지를 보여 주는 지표입니다. 자산 비중이 큰 업종에서 자주 참고합니다.</p>
+          <p><span class="eq">PBR = 주가 ÷ BPS</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>ROE (자기자본이익률)</summary>
+        <div class="body">
+          <p>주주 몫의 자본으로 얼마나 이익을 냈는지를 보여 주는 수익성 지표입니다.</p>
+          <p><span class="eq">ROE = 당기순이익 ÷ 자기자본 × 100</span></p>
+          <p class="hint">이 포털의 계산기는 학습용으로 EPS ÷ BPS를 ROE로 단순 환산합니다. 실제 보고서는 평균 자기자본을 쓰기도 합니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary>배당수익률</summary>
+        <div class="body">
+          <p>주가 대비 1주당 배당금의 비율로, 투자금액 대비 배당으로 받는 현금 흐름의 크기를 나타냅니다.</p>
+          <p><span class="eq">배당수익률 = 주당배당금(DPS) ÷ 주가 × 100</span></p>
+          <p class="hint">주가가 변하면 수익률도 변하며, 배당 규모는 매년 달라질 수 있습니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary>어닝 서프라이즈 · 어닝 쇼크</summary>
+        <div class="body">
+          <p>발표된 실적이 시장 컨센서스를 크게 웃돌면 어닝 서프라이즈, 크게 밑돌면 어닝 쇼크라고 부릅니다.</p>
+          <p class="hint">일회성 요인(자산 매각, 환율 등)이 섞여 있을 수 있어 영업이익 등 본업 지표와 함께 보는 것이 좋습니다.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 지표 일정 ===== -->
+<section class="block alt" id="calendar" aria-labelledby="calTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Calendar</div>
+      <h2 id="calTitle">월별 주요 경제 지표 발표 일정</h2>
+      <p>아래 표는 <b>학습용 예시</b>입니다. 실제 발표일은 각 기관의 공식 일정을 확인하세요.</p>
+    </div>
+    <div class="tabs" id="calTabs" role="group" aria-label="월 선택"></div>
+    <div class="table-wrap">
+      <table>
+        <caption id="calCaption"></caption>
+        <thead><tr><th scope="col">날짜</th><th scope="col">지표</th><th scope="col">발표 기관</th><th scope="col">대상 기간</th><th scope="col">중요도</th></tr></thead>
+        <tbody id="calBody"></tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">중요도는 학습 편의를 위한 예시 표기입니다(★ 1~3개).</p>
+  </div>
+</section>
+
+<!-- ===== 지표 계산기 ===== -->
+<section class="block" id="calculator" aria-labelledby="calcTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Practice</div>
+      <h2 id="calcTitle">투자 지표 연습 계산기</h2>
+      <p>주가·EPS·BPS·주당배당금을 입력하면 PER, PBR, ROE, 배당수익률을 계산합니다. 모든 금액은 같은 통화 단위로 입력하세요.</p>
+    </div>
+    <div class="calc">
+      <form class="panel" id="calcForm" autocomplete="off" novalidate>
+        <h3>입력</h3>
+        <div class="form-row"><label for="price">주가</label><input class="field-input num" id="price" type="number" inputmode="decimal" step="any" min="0" placeholder="예: 50000"></div>
+        <div class="form-row"><label for="eps">EPS (주당순이익)</label><input class="field-input num" id="eps" type="number" inputmode="decimal" step="any" placeholder="예: 4000"><small>적자라면 음수도 입력할 수 있습니다.</small></div>
+        <div class="form-row"><label for="bps">BPS (주당순자산)</label><input class="field-input num" id="bps" type="number" inputmode="decimal" step="any" placeholder="예: 40000"></div>
+        <div class="form-row"><label for="dps">주당배당금 (DPS)</label><input class="field-input num" id="dps" type="number" inputmode="decimal" step="any" min="0" placeholder="예: 1000"></div>
+        <div class="btn-row">
+          <button class="btn" type="submit">계산하기</button>
+          <button class="btn ghost" type="button" id="fillSample">예시 값 채우기</button>
+          <button class="btn ghost" type="button" id="resetCalc">초기화</button>
+        </div>
+      </form>
+      <div class="panel" aria-live="polite">
+        <h3>결과</h3>
+        <div class="results">
+          <div class="metric"><span>PER</span><strong id="rPER">—</strong><em>주가 ÷ EPS</em></div>
+          <div class="metric"><span>PBR</span><strong id="rPBR">—</strong><em>주가 ÷ BPS</em></div>
+          <div class="metric"><span>ROE</span><strong id="rROE">—</strong><em>EPS ÷ BPS × 100 (단순 환산)</em></div>
+          <div class="metric"><span>배당수익률</span><strong id="rYLD">—</strong><em>DPS ÷ 주가 × 100</em></div>
+        </div>
+        <p class="privacy">입력한 값은 이 화면 안에서만 계산되며 저장되거나 외부로 전송되지 않습니다. 페이지를 닫거나 새로 고치면 사라집니다.</p>
+        <p class="note" style="margin:10px 0 0">예시 값은 가상의 숫자이며 특정 종목과 무관합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block alt" id="faq" aria-labelledby="faqTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">FAQ</div>
+      <h2 id="faqTitle">자주 묻는 질문</h2>
+      <p>궁금한 내용을 검색하거나 질문을 눌러 답을 확인하세요. (문구는 예시이며 운영 정책에 맞게 수정해 사용하세요.)</p>
+    </div>
+    <div class="faq-search">
+      <input class="field-input" id="faqSearch" type="search" placeholder="FAQ 검색 (예: 목표주가, 듀레이션, 카테고리)" aria-label="FAQ 검색" autocomplete="off">
+    </div>
+    <div class="filters faq-filters" id="faqFilters" role="group" aria-label="FAQ 카테고리"></div>
+    <p class="result-meta" id="faqMeta" aria-live="polite"></p>
+    <div class="acc" id="faqList">
+      <details><summary><span class="faq-cat">보고서 이용</span><span class="faq-q">리서치센터는 어떤 분야를 다루고, 얼마나 자주 발간하나요?</span></summary><div class="body"><p>매크로 경제(정기 + 이슈 발생 시), 산업 트렌드(정기), 기업 분석(실적 발표 전후), 증시 전망·전략(정기)의 4개 분야입니다.</p></div></details>
+      <details><summary><span class="faq-cat">보고서 이용</span><span class="faq-q">보고서에는 어떤 종류가 있나요?</span></summary><div class="body"><p>데일리(전일 시장 요약과 당일 체크 포인트), 위클리(주간 주요 이슈), 인뎁스(특정 주제 심층), 이슈 코멘트(돌발 이슈 신속 분석)가 있습니다.</p></div></details>
+      <details><summary><span class="faq-cat">보고서 이용</span><span class="faq-q">공표 전 보고서를 동료에게 공유해도 되나요?</span></summary><div class="body"><p>안 됩니다. 공표된 보고서만 열람·배포할 수 있고, 공표 전 자료는 어떤 경로로도 공유할 수 없습니다.</p></div></details>
+      <details><summary><span class="faq-cat">보고서 읽는 법</span><span class="faq-q">투자의견, 목표주가, 컨센서스, 밸류에이션, 커버리지는 각각 무슨 뜻인가요?</span></summary><div class="body"><p>투자의견은 분석자의 견해를 등급으로 표시한 것입니다. 목표주가는 일정 기간 후 도달 가능하다고 본 가격 추정치입니다. 컨센서스는 여러 분석자 전망의 평균입니다. 밸류에이션은 현재 가격이 적정한지 판단하는 작업입니다. 커버리지는 분석 대상으로 다루는 종목 범위입니다.</p></div></details>
+      <details><summary><span class="faq-cat">보고서 읽는 법</span><span class="faq-q">목표주가는 그 가격에 도달한다는 뜻인가요?</span></summary><div class="body"><p>아닙니다. 목표주가는 추정치이고 가정이 바뀌면 달라집니다. 결론보다 근거와 가정을 먼저 읽는 것이 좋습니다.</p></div></details>
+      <details><summary><span class="faq-cat">경제 지표</span><span class="faq-q">주요 경제 지표는 누가, 얼마나 자주 발표하나요?</span></summary><div class="body"><p>기준금리 결정은 한국은행이 연 8회, 소비자물가지수와 고용 동향은 통계청이 월간으로 발표합니다. 수출입 동향은 관세청·산업부가 월간, GDP 속보치는 한국은행이 분기마다 발표합니다.</p></div></details>
+      <details><summary><span class="faq-cat">주식 지표</span><span class="faq-q">EPS, PER, BPS, PBR, ROE, 배당수익률은 어떻게 계산하나요?</span></summary><div class="body"><p>EPS = 당기순이익 ÷ 발행주식수, PER = 주가 ÷ EPS, BPS = 자본 ÷ 발행주식수, PBR = 주가 ÷ BPS입니다. ROE = 당기순이익 ÷ 자본 × 100, 배당수익률 = 주당배당금 ÷ 주가 × 100입니다.</p></div></details>
+      <details><summary><span class="faq-cat">주식 지표</span><span class="faq-q">PER이 낮으면 저평가된 주식으로 봐도 되나요?</span></summary><div class="body"><p>반드시 그렇지는 않습니다. 이익이 일시적으로 컸을 수 있고, 업종마다 평균 수준이 달라 같은 업종끼리 비교해야 합니다. 적자 기업은 PER을 계산할 수 없습니다. ROE가 높아도 부채가 많아서일 수 있으니 부채비율을 함께 봅니다.</p></div></details>
+      <details><summary><span class="faq-cat">채권 지표</span><span class="faq-q">만기수익률, 듀레이션, 신용스프레드는 무엇인가요?</span></summary><div class="body"><p>만기수익률(YTM)은 채권을 만기까지 보유할 때 기대되는 연 수익률입니다. 듀레이션은 금리가 1%p 변할 때 채권 가격이 변하는 정도로, 길수록 금리 변화에 가격이 민감합니다. 신용스프레드는 국채 대비 추가로 요구되는 금리 차이입니다.</p></div></details>
+      <details><summary><span class="faq-cat">위험 지표</span><span class="faq-q">변동성, 샤프지수, 최대낙폭(MDD)은 무엇을 뜻하나요?</span></summary><div class="body"><p>변동성은 수익률이 흔들리는 정도로 클수록 위험이 큽니다. 샤프지수는 위험 1단위당 얻은 초과수익으로 높을수록 효율적입니다. 최대낙폭은 고점 대비 가장 크게 하락한 폭입니다.</p></div></details>
+    </div>
+    <div class="empty" id="faqEmpty" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 보세요.</div>
+  </div>
+</section>
+
+<!-- ===== 자료실 ===== -->
+<section class="block" id="library" aria-labelledby="libTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Library</div>
+      <h2 id="libTitle">자료실</h2>
+      <p>학습에 활용할 수 있는 참고 자료입니다. (파일명은 예시이며 files 폴더에 실제 파일을 넣어 사용하세요.)</p>
+    </div>
+    <ul class="filelist" aria-label="자료실 파일 목록">
+      <li>
+        <div class="fname"><i>PDF</i><b>투자지표_용어해설집.pdf</b><small>files/investment-indicator-glossary.pdf</small></div>
+        <p class="fdesc">PER, PBR, ROE 등 자주 쓰는 지표를 쉽게 풀었습니다.</p>
+        <span class="fsize num">265.0 KB</span>
+        <a class="btn" href="files/investment-indicator-glossary.pdf" download="투자지표_용어해설집.pdf" aria-label="투자지표_용어해설집.pdf 다운로드">다운로드</a>
+      </li>
+      <li>
+        <div class="fname"><i>PDF</i><b>리서치_이용안내서.pdf</b><small>files/research-report-guide.pdf</small></div>
+        <p class="fdesc">리서치 분야와 보고서 종류, 이용 방법을 안내합니다.</p>
+        <span class="fsize num">259.6 KB</span>
+        <a class="btn" href="files/research-report-guide.pdf" download="리서치_이용안내서.pdf" aria-label="리서치_이용안내서.pdf 다운로드">다운로드</a>
+      </li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<!-- ===== 하단 고지문 ===== -->
+<footer>
+  <div class="wrap">
+    <p class="notice">본 자료는 투자 참고용이며 투자 판단의 최종 책임은 투자자에게 있습니다 · 이해관계 고지 · 준법감시인 심의필 제○○호</p>
+    <p class="copy">© Research Center. 본 페이지의 보고서, 일정, 수치는 모두 학습용 예시입니다.</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="맨 위로"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- 데이터(모두 예시) ---------- */
+  var CAT = { macro: '매크로', industry: '산업', company: '기업 분석', outlook: '증시 전망' };
+  var FIELD_DESC = {
+    macro: '성장률·물가·금리·환율 등 거시 변수의 흐름과 정책 경로를 점검합니다.',
+    industry: '업황 사이클, 수급, 규제와 기술 변화 등 산업 단위의 동향을 분석합니다.',
+    company: '사업 구조, 실적, 재무 상태를 중심으로 개별 기업을 분석합니다.',
+    outlook: '지수 흐름, 밸류에이션, 수급 환경 등 시장 전반의 여건을 점검합니다.'
+  };
+  var REPORTS = [
+    { id: 'macro-2026-11', cat: 'macro', date: '2026-11-05', title: '2027년 글로벌 경제 전망: 둔화 속 완만한 회복 경로',
+      sum: ['주요국 성장률이 완만하게 둔화한 뒤 회복하는 경로를 기본 시나리오로 제시합니다.', '물가 상승률 둔화 속도가 통화정책 방향의 핵심 변수임을 점검합니다.', '무역·지정학 변수에 따른 상·하방 시나리오를 함께 정리합니다.'] },
+    { id: 'macro-2026-10', cat: 'macro', date: '2026-10-20', title: '국내 물가·금리 경로 점검: 통화정책 전환 시점 시나리오',
+      sum: ['소비자물가의 품목별 기여도를 분해해 물가 흐름을 설명합니다.', '기준금리 경로를 시나리오별로 구분해 가정과 조건을 비교합니다.', '환율과 가계부채가 정책 선택에 미치는 영향을 짚어 봅니다.'] },
+    { id: 'industry-2026-11', cat: 'industry', date: '2026-11-03', title: '반도체 업황 점검: 재고 순환과 설비투자 사이클',
+      sum: ['재고 수준과 출하 지표로 업황 사이클의 현재 위치를 가늠합니다.', '수요처별 변화와 설비투자 계획이 공급에 미칠 영향을 살펴봅니다.', '업황 판단 시 함께 확인할 선행 지표 목록을 제공합니다.'] },
+    { id: 'industry-2026-10', cat: 'industry', date: '2026-10-14', title: '2차전지 밸류체인 점검: 수요 둔화와 기술 전환',
+      sum: ['전방 수요 둔화가 소재·부품 단계에 전달되는 경로를 정리합니다.', '신기술 도입이 밸류체인별 수익 구조에 주는 변화를 비교합니다.', '정책·규제 환경 변화에서 확인할 항목을 제시합니다.'] },
+    { id: 'company-2026-10', cat: 'company', date: '2026-10-28', title: '예시기업 A 기업 분석: 사업 구조와 수익성 추이',
+      sum: ['사업부문별 매출 비중과 수익성 변화를 최근 분기 기준으로 정리합니다.', '원가 구조와 가격 전가력이 영업이익률에 미친 영향을 분석합니다.', '실적 추정의 핵심 가정과 주요 위험 요인을 명시합니다.'] },
+    { id: 'company-2026-09', cat: 'company', date: '2026-09-30', title: '예시기업 B 기업 분석: 재무 건전성과 현금흐름 점검',
+      sum: ['부채비율, 이자보상배율 등 재무 안정성 지표의 추이를 점검합니다.', '영업현금흐름과 투자 지출의 균형을 통해 자금 여력을 살펴봅니다.', '재무 지표를 읽을 때 유의할 회계상 포인트를 설명합니다.'] },
+    { id: 'outlook-2026-11', cat: 'outlook', date: '2026-11-09', title: '12월 증시 전망: 수급 환경과 밸류에이션 점검',
+      sum: ['지수 밸류에이션을 과거 구간과 비교해 현재 수준을 설명합니다.', '외국인·기관·개인 수급 흐름과 계절적 요인을 점검합니다.', '연말 이벤트 일정과 시장 변동성 요인을 정리합니다.'] },
+    { id: 'outlook-2026-10', cat: 'outlook', date: '2026-10-06', title: '4분기 실적 시즌 프리뷰: 이익 추정치 변화 점검',
+      sum: ['업종별 이익 추정치의 최근 변화 방향과 폭을 비교합니다.', '컨센서스와 실제 실적 간 괴리가 생기는 전형적 원인을 설명합니다.', '실적 발표 때 확인할 체크리스트를 제공합니다.'] }
+  ];
+  var MONTHS = {
+    '2026-11': [
+      ['2026-11-03', '소비자물가지수(CPI)', '통계청', '2026년 10월', 3],
+      ['2026-11-07', '고용동향(미국 비농업 고용)', '미국 노동통계국', '2026년 10월', 3],
+      ['2026-11-12', '소비자물가지수(CPI, 미국)', '미국 노동통계국', '2026년 10월', 3],
+      ['2026-11-17', '수출입 동향(1~15일)', '관세청', '2026년 11월', 2],
+      ['2026-11-26', '통화정책방향 결정회의', '한국은행', '—', 3],
+      ['2026-11-28', '산업활동동향', '통계청', '2026년 10월', 2]
+    ],
+    '2026-12': [
+      ['2026-12-01', '수출입 동향', '산업통상부', '2026년 11월', 2],
+      ['2026-12-03', '소비자물가지수(CPI)', '통계청', '2026년 11월', 3],
+      ['2026-12-05', '고용동향(미국 비농업 고용)', '미국 노동통계국', '2026년 11월', 3],
+      ['2026-12-10', '소비자물가지수(CPI, 미국)', '미국 노동통계국', '2026년 11월', 3],
+      ['2026-12-16', 'FOMC 정례회의 결과', '미국 연방준비제도', '—', 3],
+      ['2026-12-23', '국내총생산(GDP, 속보)', '한국은행', '2026년 3분기 확정', 2]
+    ],
+    '2027-01': [
+      ['2027-01-04', '수출입 동향', '산업통상부', '2026년 12월', 2],
+      ['2027-01-06', '소비자물가지수(CPI)', '통계청', '2026년 12월', 3],
+      ['2027-01-08', '고용동향(미국 비농업 고용)', '미국 노동통계국', '2026년 12월', 3],
+      ['2027-01-14', '소비자물가지수(CPI, 미국)', '미국 노동통계국', '2026년 12월', 3],
+      ['2027-01-15', '통화정책방향 결정회의', '한국은행', '—', 3],
+      ['2027-01-29', '산업활동동향', '통계청', '2026년 12월', 2]
+    ]
+  };
+
+  var WEEK = ['일', '월', '화', '수', '목', '금', '토'];
+  function fmtDate(iso) { return iso.replace(/-/g, '.'); }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  /* ---------- 상단 메뉴: 모바일 토글, 현재 위치 표시 ---------- */
+  var menu = $('menu'), toggle = $('navToggle'), topbar = document.querySelector('.topbar');
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  }
+  function closeMenu() { setMenu(false); }
+  toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) { closeMenu(); toggle.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (menu.classList.contains('open') && !topbar.contains(e.target)) closeMenu();
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 980) closeMenu(); });
+
+  var links = Array.prototype.slice.call(menu.querySelectorAll('a'));
+  var targets = links.map(function (a) { return $(a.getAttribute('href').slice(1)); });
+  var ticking = false;
+  function updateActive() {
+    ticking = false;
+    var navH = document.querySelector('.topbar').offsetHeight;
+    var line = navH + 80, idx = 0;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = targets.length - 1;
+    links.forEach(function (a, i) {
+      if (i === idx) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateActive); }
+  }, { passive: true });
+  window.addEventListener('resize', updateActive);
+
+  /* ---------- 다크/라이트 전환 (저장하는 값은 테마 선택 하나뿐) ---------- */
+  var root = document.documentElement, themeBtn = $('themeToggle');
+  function applyTheme(mode) {
+    root.setAttribute('data-theme', mode);
+    var label = mode === 'day' ? '다크 모드로 전환' : '라이트 모드로 전환';
+    themeBtn.setAttribute('aria-label', label);
+    themeBtn.title = label;
+  }
+  themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'day' ? 'night' : 'day';
+    applyTheme(next);
+    try { localStorage.setItem('rc-theme', next); } catch (e) {}
+  });
+  applyTheme(root.getAttribute('data-theme') === 'day' ? 'day' : 'night');
+
+  /* ---------- 맨 위로 ---------- */
+  var toTop = $('toTop');
+  function updateToTop() { toTop.classList.toggle('show', window.scrollY > 400); }
+  window.addEventListener('scroll', updateToTop, { passive: true });
+  toTop.addEventListener('click', function () {
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
+    document.querySelector('.brand').focus({ preventScroll: true });
+  });
+  updateToTop();
+
+  /* ---------- 보고서 목록 ---------- */
+  var state = { cat: 'all', sort: 'new' };
+  var filtersBox = $('filters'), grid = $('reportGrid'), meta = $('resultMeta'), searchBox = $('titleSearch');
+
+  function buildFilters() {
+    var items = [['all', '전체']].concat(Object.keys(CAT).map(function (k) { return [k, CAT[k]]; }));
+    items.forEach(function (it) {
+      var b = el('button', 'pill', it[1]);
+      b.type = 'button';
+      b.dataset.cat = it[0];
+      b.setAttribute('aria-pressed', String(it[0] === state.cat));
+      filtersBox.appendChild(b);
+    });
+  }
+  function syncFilters() {
+    Array.prototype.forEach.call(filtersBox.children, function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.cat === state.cat));
+    });
+  }
+  filtersBox.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    state.cat = b.dataset.cat;
+    syncFilters();
+    renderReports();
+  });
+  $('sortSel').addEventListener('change', function (e) { state.sort = e.target.value; renderReports(); });
+  searchBox.addEventListener('input', renderReports);
+
+  function renderReports() {
+    var q = searchBox.value.trim().toLowerCase();
+    var list = REPORTS.filter(function (r) {
+      return (state.cat === 'all' || r.cat === state.cat) && r.title.toLowerCase().indexOf(q) !== -1;
+    });
+    list.sort(function (a, b) {
+      return state.sort === 'new' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date);
+    });
+    grid.textContent = '';
+    meta.textContent = '총 ' + list.length + '건';
+    if (!list.length) {
+      grid.appendChild(el('div', 'empty', '조건에 맞는 보고서가 없습니다. 필터나 검색어를 바꿔 보세요.'));
+      return;
+    }
+    list.forEach(function (r) {
+      var card = el('article', 'report');
+      var head = el('header');
+      head.appendChild(el('span', 'tag ' + r.cat, CAT[r.cat]));
+      var t = el('time', 'num', fmtDate(r.date));
+      t.setAttribute('datetime', r.date);
+      head.appendChild(t);
+      card.appendChild(head);
+      card.appendChild(el('h3', null, r.title));
+      var ul = el('ul');
+      r.sum.forEach(function (s) { ul.appendChild(el('li', null, s)); });
+      card.appendChild(ul);
+      var a = el('a', 'btn', 'PDF 다운로드');
+      a.href = 'files/' + r.id + '.pdf';
+      a.setAttribute('download', '');
+      a.setAttribute('aria-label', r.title + ' PDF 다운로드');
+      card.appendChild(a);
+      grid.appendChild(card);
+    });
+  }
+
+  /* ---------- 분야 카드 ---------- */
+  function buildFields() {
+    var box = $('fieldGrid');
+    Object.keys(CAT).forEach(function (k, i) {
+      var n = REPORTS.filter(function (r) { return r.cat === k; }).length;
+      var c = el('div', 'field');
+      c.appendChild(el('span', 'no', '0' + (i + 1)));
+      c.appendChild(el('h3', null, CAT[k]));
+      c.appendChild(el('p', null, FIELD_DESC[k]));
+      c.appendChild(el('span', 'count num', '예시 보고서 ' + n + '편'));
+      var b = el('button', 'btn ghost', CAT[k] + ' 보고서 보기');
+      b.type = 'button';
+      b.addEventListener('click', function () {
+        state.cat = k; searchBox.value = '';
+        syncFilters(); renderReports();
+        $('reports').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      c.appendChild(b);
+      box.appendChild(c);
+    });
+  }
+
+  /* ---------- 지표 일정 ---------- */
+  var calTabs = $('calTabs'), calBody = $('calBody'), calCaption = $('calCaption');
+  function monthLabel(key) { var p = key.split('-'); return p[0] + '년 ' + Number(p[1]) + '월'; }
+  function renderCal(key) {
+    Array.prototype.forEach.call(calTabs.children, function (b) { b.setAttribute('aria-pressed', String(b.dataset.m === key)); });
+    calCaption.textContent = monthLabel(key) + ' 주요 지표 발표 일정 (예시)';
+    calBody.textContent = '';
+    MONTHS[key].forEach(function (row) {
+      var p = row[0].split('-').map(Number);
+      var wd = WEEK[new Date(p[0], p[1] - 1, p[2]).getDay()];
+      var tr = el('tr');
+      var d = el('td', 'date num'); d.appendChild(document.createTextNode(p[1] + '/' + p[2] + ' '));
+      d.appendChild(el('small', null, '(' + wd + ')'));
+      tr.appendChild(d);
+      tr.appendChild(el('td', null, row[1]));
+      tr.appendChild(el('td', null, row[2]));
+      tr.appendChild(el('td', null, row[3]));
+      var s = el('td', 'stars', '★'.repeat(row[4]) + '☆'.repeat(3 - row[4]));
+      s.setAttribute('aria-label', '중요도 3단계 중 ' + row[4]);
+      tr.appendChild(s);
+      calBody.appendChild(tr);
+    });
+  }
+  Object.keys(MONTHS).forEach(function (k, i) {
+    var b = el('button', 'pill', monthLabel(k));
+    b.type = 'button'; b.dataset.m = k;
+    b.addEventListener('click', function () { renderCal(k); });
+    calTabs.appendChild(b);
+  });
+
+  /* ---------- 계산기 (저장·전송 없음) ---------- */
+  var ids = ['price', 'eps', 'bps', 'dps'], inp = {};
+  ids.forEach(function (i) { inp[i] = $(i); });
+  var out = { per: $('rPER'), pbr: $('rPBR'), roe: $('rROE'), yld: $('rYLD') };
+  function num(elm) {
+    var s = elm.value.trim();
+    if (s === '') return null;
+    var n = Number(s);
+    return isFinite(n) ? n : null;
+  }
+  function fmt(n, unit) {
+    return n.toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + unit;
+  }
+  function setOut(node, text, small) {
+    node.textContent = text;
+    node.classList.toggle('small', !!small);
+  }
+  function calc() {
+    var price = num(inp.price), eps = num(inp.eps), bps = num(inp.bps), dps = num(inp.dps);
+    var needPrice = '주가 입력 필요';
+    // PER
+    if (price == null || price <= 0) setOut(out.per, needPrice, true);
+    else if (eps == null) setOut(out.per, 'EPS 입력 필요', true);
+    else if (eps <= 0) setOut(out.per, '산출 불가 (EPS ≤ 0)', true);
+    else setOut(out.per, fmt(price / eps, '배'));
+    // PBR
+    if (price == null || price <= 0) setOut(out.pbr, needPrice, true);
+    else if (bps == null) setOut(out.pbr, 'BPS 입력 필요', true);
+    else if (bps <= 0) setOut(out.pbr, '산출 불가 (BPS ≤ 0)', true);
+    else setOut(out.pbr, fmt(price / bps, '배'));
+    // ROE
+    if (eps == null || bps == null) setOut(out.roe, 'EPS·BPS 입력 필요', true);
+    else if (bps <= 0) setOut(out.roe, '산출 불가 (BPS ≤ 0)', true);
+    else setOut(out.roe, fmt(eps / bps * 100, '%'));
+    // 배당수익률
+    if (price == null || price <= 0) setOut(out.yld, needPrice, true);
+    else if (dps == null) setOut(out.yld, 'DPS 입력 필요', true);
+    else if (dps < 0) setOut(out.yld, '산출 불가 (DPS < 0)', true);
+    else setOut(out.yld, fmt(dps / price * 100, '%'));
+  }
+  ids.forEach(function (i) { inp[i].addEventListener('input', calc); });
+  $('calcForm').addEventListener('submit', function (e) { e.preventDefault(); calc(); });
+  $('fillSample').addEventListener('click', function () {
+    inp.price.value = 50000; inp.eps.value = 4000; inp.bps.value = 40000; inp.dps.value = 1000; calc();
+  });
+  $('resetCalc').addEventListener('click', function () {
+    ids.forEach(function (i) { inp[i].value = ''; }); calc(); inp.price.focus();
+  });
+
+  /* ---------- FAQ 검색 ---------- */
+  var faqItems = Array.prototype.slice.call($('faqList').querySelectorAll('details'));
+  var faqMeta = $('faqMeta'), faqEmpty = $('faqEmpty');
+  var faqCat = 'all', faqFilters = $('faqFilters');
+  function faqCatOf(d) { var c = d.querySelector('.faq-cat'); return c ? c.textContent.trim() : ''; }
+  function renderFaq() {
+    var q = $('faqSearch').value.trim().toLowerCase(), shown = 0;
+    faqItems.forEach(function (d) {
+      var hit = (faqCat === 'all' || faqCatOf(d) === faqCat) &&
+                (!q || d.textContent.toLowerCase().indexOf(q) !== -1);
+      d.hidden = !hit;
+      if (hit) shown++;
+      if (q && hit) d.open = true; else if (!q) d.open = false;
+    });
+    faqMeta.textContent = (q || faqCat !== 'all') ? '검색 결과 ' + shown + '건' : '';
+    faqEmpty.hidden = shown !== 0;
+  }
+  function buildFaqFilters() {
+    var cats = ['all'];
+    faqItems.forEach(function (d) { var c = faqCatOf(d); if (c && cats.indexOf(c) === -1) cats.push(c); });
+    cats.forEach(function (c) {
+      var b = el('button', 'pill', c === 'all' ? '전체' : c);
+      b.type = 'button';
+      b.dataset.cat = c;
+      b.setAttribute('aria-pressed', String(c === faqCat));
+      faqFilters.appendChild(b);
+    });
+  }
+  faqFilters.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    faqCat = b.dataset.cat;
+    Array.prototype.forEach.call(faqFilters.children, function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    renderFaq();
+  });
+  $('faqSearch').addEventListener('input', renderFaq);
+  buildFaqFilters();
+
+  /* ---------- 초기화 ---------- */
+  $('statReports').textContent = REPORTS.length;
+  $('statTerms').textContent = $('glossary').querySelectorAll('details').length;
+  buildFields();
+  buildFilters();
+  renderReports();
+  renderCal(Object.keys(MONTHS)[0]);
+  calc();
+  updateActive();
+})();
+</script>
+</body>
+</html>
